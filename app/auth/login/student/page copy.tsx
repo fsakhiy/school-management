@@ -1,10 +1,10 @@
 "use client"
 
 import React, {ChangeEvent, useState} from "react";
-import EmployeeLoginAction from "@/app/auth/login/employee/action";
+import StudentLoginAction from "@/app/auth/login/student/action";
 import toast, { Toaster } from "react-hot-toast";
 
-const EmployeeLogin:React.FC = () => {
+const StudentLogin:React.FC = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
@@ -24,7 +24,7 @@ const EmployeeLogin:React.FC = () => {
         if (!isEmailValid(email) && (toast.error("email is not valid", { id :loading}), true)) return
         
 
-        await EmployeeLoginAction({email, password}) ? toast.success("success", {id: loading}) : toast.error("error", {id: loading})
+        await StudentLoginAction({email, password}) ? toast.success("success", {id: loading}) : toast.error("error", {id: loading})
     }
     
     return (
@@ -49,4 +49,4 @@ const EmployeeLogin:React.FC = () => {
     )
 }
 
-export default EmployeeLogin
+export default StudentLogin
